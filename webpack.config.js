@@ -12,6 +12,9 @@ module.exports = function(env) {
             path: path.resolve(__dirname, 'dist')
         },
         plugins: [
+            new webpack.optimize.UglifyJsPlugin({
+                sourceMap: options.devtool && (options.devtool.indexOf("sourcemap") >= 0 || options.devtool.indexOf("source-map") >= 0)
+            }),
             // new webpack.optimize.CommonsChunkPlugin({
             //     name: 'vendor' // 指定公共 bundle 的名字。
             // }),
